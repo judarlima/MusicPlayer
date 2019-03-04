@@ -17,5 +17,5 @@ extension LookupResponse: Decodable {
     enum CodingKeys: String, CodingKey {
         case resultCount
         case results
-    }
+    }    
 }
