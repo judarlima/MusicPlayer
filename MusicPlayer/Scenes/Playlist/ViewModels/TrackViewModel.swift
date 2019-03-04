@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct TrackViewModel {
+    let songName: String
+    let artist: String
+    let artwork: String
+}
