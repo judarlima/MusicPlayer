@@ -9,17 +9,49 @@
 import UIKit
 
 protocol PlaylistDisplayProtocol: class {
-    func displayPlaylist()
-    func displayError()
+    func displayPlaylist (viewModel: PlayListViewModel)
+    func displayError(message: String)
 }
 
 class PlaylistViewController: BaseViewController {
     @IBOutlet private weak var tableView: UITableView!
     private let cellIdentifier = "TrackTableViewCell"
+    private var interactor: PlaylistInteractorProtocol!
+    private var viewModel = PlayListViewModel(tracks: [])
+    
+    init(interactor: PlaylistInteractorProtocol) {
+        super.init(nibName: "PlaylistViewController", bundle: Bundle.main)
+        self.interactor = interactor
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        interactor.seePlaylist()
+        self.showLoader()
+    }
+    
+    func setupView() {
+        setupNavBar()
         setupTableView()
+    }
+    
+    func setupNavBar() {
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "shuffle"),
+                                                 style: .done,
+                                                 target: self,
+                                                 action: #selector(PlaylistViewController.shuffle))
+        rightBarButtonItem.tintColor = .white
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        self.navigationItem.title = "Shuffle Songs"
+    }
+    
+    @objc func shuffle() {
+        interactor.shufflePlaylist()
     }
     
     func setupTableView() {
@@ -29,25 +61,34 @@ class PlaylistViewController: BaseViewController {
                            forCellReuseIdentifier: cellIdentifier)
         tableView.tableFooterView = UIView()
     }
+}
+
+extension PlaylistViewController: PlaylistDisplayProtocol {
     
-    init() {
-        super.init(nibName: "PlaylistViewController", bundle: Bundle.main)
+    func displayPlaylist(viewModel: PlayListViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            self?.viewModel = viewModel
+            self?.tableView.reloadData()
+            self?.hideLoader()
+        }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func displayError(message: String) {
+        print(message)
     }
 }
 
 extension PlaylistViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.tracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
                                                        for: indexPath) as? TrackTableViewCell
             else { return UITableViewCell() }
+        let cellViewModel = viewModel.tracks[indexPath.row]
+        cell.bind(viewModel: cellViewModel)
         return cell
     }
     
