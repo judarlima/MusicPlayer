@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="109.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="PJ4-YD-xtH">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="PJ4-YD-xtH">
                         <rect key="frame" x="15" y="15" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="KV7-Tk-toP"/>
@@ -60,10 +60,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="artistLabel" destination="wGc-1O-Vv4" id="dEZ-dX-rwz"/>
+                <outlet property="artworkImage" destination="PJ4-YD-xtH" id="MAa-j4-sbt"/>
+                <outlet property="trackLabel" destination="wnb-C0-OCf" id="RDO-hj-u2Q"/>
+            </connections>
             <point key="canvasLocation" x="104" y="163.71814092953525"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="launchScreen" width="375" height="667"/>
+        <image name="placeholderImage" width="300" height="225"/>
     </resources>
 </document>
