@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct API {
+    struct URL {
+        static let base = ""
+        static let some = "\(base)" + "shu"
+    }
+}

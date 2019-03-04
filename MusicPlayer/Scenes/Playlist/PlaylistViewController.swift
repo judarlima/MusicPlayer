@@ -12,13 +12,14 @@ class PlaylistViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoader()
     }
     
     init() {
         super.init(nibName: "PlaylistViewController", bundle: Bundle.main)
         self.view.backgroundColor = .lightGray
     }
-    
+        
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
