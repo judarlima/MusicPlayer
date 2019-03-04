@@ -10,7 +10,10 @@ import Foundation
 
 struct API {
     struct URL {
-        static let base = ""
-        static let some = "\(base)" + "shu"
+        static let base = "https://us-central1-tw-exercicio-mobile.cloudfunctions.net"
+    }
+    
+    struct Path {
+        static let playlist = "/lookup"
     }
 }
