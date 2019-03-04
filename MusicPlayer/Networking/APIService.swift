@@ -52,5 +52,5 @@ struct APIService: ServiceProtocol {
                 }
                 }.resume()
         }
-    }
+    }    
 }
