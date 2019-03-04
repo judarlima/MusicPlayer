@@ -55,11 +55,15 @@ class PlaylistViewController: BaseViewController {
     }
     
     func setupTableView() {
+        let bgView = UIView()
+        bgView.backgroundColor = #colorLiteral(red: 0.4648635387, green: 0.32649225, blue: 0.4731030464, alpha: 1)
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil),
                            forCellReuseIdentifier: cellIdentifier)
         tableView.tableFooterView = UIView()
+        tableView.backgroundView = bgView
     }
 }
 
