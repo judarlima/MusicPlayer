@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loader.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        self.loaderView.backgroundColor = .purple
+        self.loaderView.backgroundColor = #colorLiteral(red: 0.4648635387, green: 0.32649225, blue: 0.4731030464, alpha: 1)
         self.loaderView.addSubview(self.loader)
     }
     
