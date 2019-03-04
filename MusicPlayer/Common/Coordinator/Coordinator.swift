@@ -17,7 +17,13 @@ class Coordinator: CoordinatorProtocol {
     let navigationController: UINavigationController
     
     func start() {
-        let playlistViewContoller = PlaylistViewController()
+        let presenter = PlaylistPresenter()
+        let manager = PlaylistManager()
+        let interactor = PlaylistInteractor(presenter: presenter, manager: manager)
+        let playlistViewContoller = PlaylistViewController(interactor: interactor)
+        
+        presenter.viewController = playlistViewContoller
+        
         navigationController.navigationBar.tintColor = #colorLiteral(red: 0.4648635387, green: 0.32649225, blue: 0.4731030464, alpha: 1)
         navigationController.pushViewController(playlistViewContoller, animated: false)
     }
