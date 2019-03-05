@@ -16,6 +16,7 @@ protocol PlaylistInteractorProtocol {
 class PlaylistInteractor: PlaylistInteractorProtocol {
     private let presenter: PlaylistPresenterProtocol!
     private let manager: PlaylistManagerProtocol!
+    private var playlist: Playlist?
     
     init(presenter: PlaylistPresenterProtocol, manager: PlaylistManagerProtocol) {
         self.presenter = presenter
@@ -28,8 +29,9 @@ class PlaylistInteractor: PlaylistInteractorProtocol {
             guard let interactor = self else { return }
             
             switch result {
-            
+                
             case let .success(playlist):
+                interactor.playlist = playlist
                 interactor.presenter.presentPlaylist(playlist: playlist)
                 
             case let .failure(error):
@@ -38,7 +40,12 @@ class PlaylistInteractor: PlaylistInteractorProtocol {
         }
     }
     
-    func shufflePlaylist() { }
+    func shufflePlaylist() {
+        guard let shuffledPlaylist = manager.fetchShuffled()
+            else {
+                presenter.presentError(error: ServiceError.unknown("Error on shuffle track list."))
+                return
+        }
+        presenter.presentPlaylist(playlist: shuffledPlaylist)
+    }
 }
-
-

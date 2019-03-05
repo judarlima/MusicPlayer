@@ -10,5 +10,5 @@ import Foundation
 
 struct Playlist {
     let artists: [Artist]
-    let tracks: [Track]
+    var tracks: [Track]
 }
