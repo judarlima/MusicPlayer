@@ -23,17 +23,14 @@ class Coordinator: CoordinatorProtocol {
         let playlistViewContoller = PlaylistViewController(interactor: interactor)
         
         presenter.viewController = playlistViewContoller
-        
-        navigationController.navigationBar.tintColor = #colorLiteral(red: 0.4648635387, green: 0.32649225, blue: 0.4731030464, alpha: 1)
         navigationController.pushViewController(playlistViewContoller, animated: false)
     }
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.barTintColor = #colorLiteral(red: 0.4648635387, green: 0.32649225, blue: 0.4731030464, alpha: 1)
-
-        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController.navigationBar.barStyle = .blackOpaque
+        navigationController.navigationBar.tintColor = #colorLiteral(red: 0.4648635387, green: 0.32649225, blue: 0.4731030464, alpha: 1)
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 }
 
