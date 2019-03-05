@@ -78,7 +78,11 @@ extension PlaylistViewController: PlaylistDisplayProtocol {
     }
     
     func displayError(message: String) {
-        print(message)
+        let alertVC = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] _ in
+            self?.interactor.seePlaylist()
+        }))
+        self.present(alertVC, animated: true, completion: nil)
     }
 }
 
