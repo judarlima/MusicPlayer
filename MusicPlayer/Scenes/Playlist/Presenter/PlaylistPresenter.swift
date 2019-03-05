@@ -10,7 +10,6 @@ import Foundation
 
 protocol PlaylistPresenterProtocol {
     func presentPlaylist(playlist: Playlist)
-    func presentShuffled(playlist: Playlist)
     func presentError(error: ServiceError)
 }
 
@@ -22,13 +21,17 @@ class PlaylistPresenter: PlaylistPresenterProtocol {
     }
     
     func presentPlaylist(playlist: Playlist) {
-        let viewModel = PlayListViewModel(tracks: playlist.tracks.compactMap {
-            return TrackViewModel(songName: $0.name,
-                                  artist: $0.artistName + " (\($0.primaryGenre))", artwork: $0.artwork.absoluteString)
-        })
-        
-        viewController?.displayPlaylist(viewModel: viewModel)
+        let viewModel = generateViewModel(playlist: playlist)
+            viewController?.displayPlaylist(viewModel: viewModel)
     }
     
-    func presentShuffled(playlist: Playlist) { }
+    private func generateViewModel(playlist: Playlist) -> PlayListViewModel {
+        return PlayListViewModel(tracks: playlist.tracks.compactMap {
+            return TrackViewModel(
+                songName: $0.name,
+                artist: $0.artistName + " (\($0.primaryGenre))",
+                artwork: $0.artwork.absoluteString
+            )
+        })
+    }
 }
