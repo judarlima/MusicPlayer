@@ -10,12 +10,14 @@ import Foundation
 
 protocol PlaylistManagerProtocol {
     func fetchTracks(completion: @escaping (Result<Playlist>) -> Void)
+    func fetchShuffled() -> Playlist?
 }
 
 class PlaylistManager: PlaylistManagerProtocol {
     private let service: ServiceProtocol!
-    private let artistsIds = [909253, 358714030, 1171421960, 1419227, 264111789]
+    private let choosenArtists = [909253, 358714030, 1171421960, 1419227, 264111789]
     private let limit = 5
+    private var playlist: Playlist?
     
     init(service: ServiceProtocol = APIService()) {
         self.service = service
@@ -23,13 +25,14 @@ class PlaylistManager: PlaylistManagerProtocol {
     
     func fetchTracks(completion: @escaping (Result<Playlist>) -> Void) {
         service.requestData(with: PlaylistServiceSetup.tracksFromArtists(
-            ids: artistsIds, limit: limit)) { (result) in
+            ids: choosenArtists, limit: limit)) { (result) in
                 switch result {
                 case let .success(data):
                     do {
                         let decoder = JSONDecoder()
                         let responseModel = try decoder.decode(LookupResponse.self, from: data)
                         let playlist = self.generatePlaylist(response: responseModel)
+                        self.playlist = playlist
                         completion(.success(playlist))
                     } catch {
                         completion(.failure(.couldNotParseObject))
@@ -38,6 +41,12 @@ class PlaylistManager: PlaylistManagerProtocol {
                     completion(.failure(error))
                 }
         }
+    }
+    
+    func fetchShuffled() -> Playlist? {
+        guard self.playlist != nil else { return nil }
+        self.playlist?.tracks.shuffleTracks()
+        return self.playlist
     }
     
     private func generatePlaylist(response: LookupResponse) -> Playlist {
