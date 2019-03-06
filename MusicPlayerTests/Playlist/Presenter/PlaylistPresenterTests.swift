@@ -7,27 +7,40 @@
 //
 
 import XCTest
+@testable import MusicPlayer
 
 class PlaylistPresenterTests: XCTestCase {
-
+    var sut: PlaylistPresenter!
+    var viewController: PlaylistViewControllerMock!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewController = PlaylistViewControllerMock()
+        sut = PlaylistPresenter()
+        sut.viewController = viewController
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_presentPlaylist_when_presenter_receives_a_playlist_model() {
+        let playlistModel = PlaylistManagerMock.generatePlaylist()
+        let expectedViewModel = PlayListViewModel(tracks: playlistModel.tracks
+            .map { TrackViewModel(
+                songName: $0.name,
+                artist: $0.artistName + " (\($0.primaryGenre))",
+                artwork: $0.artwork.absoluteString)
+        })
+        
+        sut.presentPlaylist(playlist: playlistModel)
+        
+        XCTAssertEqual(viewController.presentedViewModel, expectedViewModel)
+        XCTAssertNil(viewController.presentedErrorMessage)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_presentError_when_playlist_receives_an_error() {
+        let serviceError = ServiceError.badRequest
+        let expectedMessage = ServiceError.badRequest.localizedDescription
+        
+        sut.presentError(error: serviceError)
+        
+        XCTAssertEqual(viewController.presentedErrorMessage, expectedMessage)
+        XCTAssertNil(viewController.presentedViewModel)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
