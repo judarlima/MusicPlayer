@@ -367,9 +367,9 @@
 		87D71E3B223009B800B36D7E /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				87D71E352230043700B36D7E /* PlaylistManagerMock.swift */,
 				87B4F8F022300C33008F92B6 /* PlaylistPresenterMock.swift */,
 				87B4F8F122300C33008F92B6 /* PlaylistViewControllerMock.swift */,
-				87D71E352230043700B36D7E /* PlaylistManagerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
