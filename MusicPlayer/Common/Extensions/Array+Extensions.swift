@@ -22,10 +22,10 @@ extension Array where Array.Element == Track {
         }
                 
         let limit = count / dict.keys.count
-        
         for i in 0 ..< limit {
-            for (_, value) in dict {
-                result.append(value[i])
+            for key in dict.keys.shuffled() {
+                guard let tracks = dict[key] else { return }
+                result.append(tracks[i])
             }
         }
         self = result
