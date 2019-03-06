@@ -7,27 +7,47 @@
 //
 
 import XCTest
+@testable import MusicPlayer
 
 class PlaylistInteractorTests: XCTestCase {
-
+    var presenterMock: PlaylistPresenterMock!
+    var managerMock: PlaylistManagerMock!
+    var sut: PlaylistInteractor!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        managerMock = PlaylistManagerMock()
+        presenterMock = PlaylistPresenterMock()
+        sut = PlaylistInteractor(presenter: presenterMock,
+                                 manager: managerMock)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_seePlaylist_when_manager_return_playlist_then_presenter_receives_a_playlist() {
+        sut.seePlaylist()
+        
+        let expectedPlaylist = managerMock.playlist
+        
+        XCTAssertEqual(presenterMock.presentedList, expectedPlaylist)
+        XCTAssertNil(presenterMock.presentedError)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_shufflePlaylist_when_manager_return_playlist_then_presenter_receives_a_playlist() {
+        sut.seePlaylist()
+        sut.shufflePlaylist()
+        
+        let expectedPlaylist = managerMock.playlist
+        
+        XCTAssertEqual(presenterMock.presentedList, expectedPlaylist)
+        XCTAssertNil(presenterMock.presentedError)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_seePlaylist_when_manager_return_serviceError_then_presenter_receives_an_error() {
+        let expectedPresentedError = ServiceError.couldNotFindHost
+        
+        managerMock.serviceError = ServiceError.couldNotFindHost
+        
+        sut.seePlaylist()
+        
+        XCTAssertEqual(presenterMock.presentedError!, expectedPresentedError)
+        XCTAssertNil(presenterMock.presentedList)
     }
-
 }
