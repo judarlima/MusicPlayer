@@ -1,6 +1,7 @@
 # MusicPlayer Sample Application
 
-[![Build Status](https://app.bitrise.io/app/997036c43511796c/status.svg?token=uhsqCBE0-srgISpb5Ncrpg)](https://app.bitrise.io/app/997036c43511796c)
+[![Build Status](https://app.bitrise.io/app/8bfe6f970aa4d47e/status.svg?token=_pJbPn74xktfBFr4FL57QA)](https://app.bitrise.io/app/8bfe6f970aa4d47e)
+[![codebeat badge](https://codebeat.co/badges/29fb5577-304f-4a26-bf97-c344be9f1128)](https://codebeat.co/projects/github-com-judarlima-musicplayer-master)
 <br><br>
 
 ## Architecture
@@ -28,6 +29,6 @@ Were implemented Unit Tests for:
 ## Instructions
 ```bash
 $ git clone https://github.com/judarlima/MusicPlayer.git
-$ cd MusicPlayer/MusicPlayer
-$ open GYGExample.xcworkspace
+$ cd MusicPlayer
+$ open MusicPlayer.xcodeproj/
 ```
