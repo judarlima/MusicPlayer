@@ -1,4 +1,4 @@
-# MusicPlayer Sample Application
+# Shuffle Tracks Sample Application
 
 [![Build Status](https://app.bitrise.io/app/8bfe6f970aa4d47e/status.svg?token=_pJbPn74xktfBFr4FL57QA)](https://app.bitrise.io/app/8bfe6f970aa4d47e)
 [![codebeat badge](https://codebeat.co/badges/29fb5577-304f-4a26-bf97-c344be9f1128)](https://codebeat.co/projects/github-com-judarlima-musicplayer-master)
