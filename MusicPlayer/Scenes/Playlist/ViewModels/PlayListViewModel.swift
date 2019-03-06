@@ -11,3 +11,9 @@ import Foundation
 struct PlayListViewModel {
     let tracks: [TrackViewModel]
 }
+
+extension PlayListViewModel: Equatable {
+    public static func ==(lhs: PlayListViewModel, rhs: PlayListViewModel) -> Bool {
+        return lhs.tracks == rhs.tracks
+    }
+}
