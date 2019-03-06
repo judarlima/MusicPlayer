@@ -5,8 +5,8 @@
 <br><br>
 
 ## Architecture
-- This project is based on MVVM-C trying to respect the SOLID and Clean Architecture principles.
-- The ViewModel is different in this architecture because she doesn't have business logic, her responsibility is only abstract the business model data into a struct that only makes sense to the presentation layer, trying not to expose those businesses model information at viewController.
+- This project architecture is a variation of MVVM-C, trying to respect SOLID and Clean Architecture's principles.
+- About the ViewModel, in this architecture she have a different purpose. She doesn't contains business logic, her responsibility is only abstract the business model data into a struct that only makes sense to the presentation layer, trying not to expose those businesses model information at viewController.
 - The layers into this architecture respect a unidirectional flow (viewController -> Interactor -> Presenter -> ViewController), this helps to prevent reference cycles.
 <br><br>
 ![](https://i.imgur.com/sGQe76A.png)
