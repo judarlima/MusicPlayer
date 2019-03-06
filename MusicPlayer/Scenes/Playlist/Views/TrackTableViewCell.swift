@@ -9,9 +9,9 @@
 import UIKit
 
 class TrackTableViewCell: UITableViewCell {
-    @IBOutlet weak var artworkImage: UIImageView!
-    @IBOutlet weak var trackLabel: UILabel!
-    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet private weak var artworkImage: UIImageView!
+    @IBOutlet private weak var trackLabel: UILabel!
+    @IBOutlet private weak var artistLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -35,12 +35,12 @@ class PlaylistViewController: BaseViewController {
         self.showLoader()
     }
     
-    func setupView() {
+    private func setupView() {
         setupNavBar()
         setupTableView()
     }
     
-    func setupNavBar() {
+    private func setupNavBar() {
         let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "shuffle"),
                                                  style: .done,
                                                  target: self,
@@ -54,7 +54,7 @@ class PlaylistViewController: BaseViewController {
         interactor.shufflePlaylist()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         let bgView = UIView()
         bgView.backgroundColor = #colorLiteral(red: 0.4648635387, green: 0.32649225, blue: 0.4731030464, alpha: 1)
 
