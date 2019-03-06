@@ -12,3 +12,10 @@ struct Playlist {
     let artists: [Artist]
     var tracks: [Track]
 }
+
+extension Playlist: Equatable {
+    public static func ==(lhs: Playlist, rhs: Playlist) -> Bool {
+        return lhs.artists == rhs.artists &&
+            lhs.tracks == rhs.tracks
+    }
+}

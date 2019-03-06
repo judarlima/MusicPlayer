@@ -27,3 +27,12 @@ extension Track: Decodable {
         case primaryGenre = "primaryGenreName"
     }
 }
+
+extension Track: Equatable {
+    public static func ==(lhs: Track, rhs: Track) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.artistName == rhs.artistName &&
+            lhs.primaryGenre == rhs.primaryGenre
+    }
+}

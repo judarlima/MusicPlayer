@@ -23,3 +23,10 @@ extension Artist: Decodable {
         case name = "artistName"
     }
 }
+
+extension Artist: Equatable {
+    public static func ==(lhs: Artist, rhs: Artist) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.name == rhs.name
+    }
+}
