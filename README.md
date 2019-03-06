@@ -15,6 +15,9 @@
 - This repository is integrated with `Bitrise` what means that every time that a pull request is open to the `master` branch the CI will run a build and the tests for the Pull Request, also when a merge occurs with the master the CI will run the build and the tests.
 - The `Bitrise` label at this readme file shows quickly if the `master` is broken or if everything is fine(tests and build).
 
+## Static Code Analysis
+- This repository is integrated with `Codebeat`. `Codebeat` gathers the results of code analysis into a single, real-time report that gives all project stakeholders the information required to improve code quality.
+
 ## Unit Tests
 Were implemented Unit Tests for:
 - Coordinator
