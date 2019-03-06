@@ -22,6 +22,12 @@ class TrackTableViewCell: UITableViewCell {
         trackLabel.text = viewModel.songName
         artistLabel.text = viewModel.artist
     }
+    
+    override func prepareForReuse() {
+        artworkImage.image = nil
+        trackLabel.text = ""
+        artistLabel.text = ""
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
