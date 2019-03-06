@@ -20,10 +20,11 @@ extension Array where Array.Element == Track {
                 dict[track.artistName] = [track]
             }
         }
-                
+        
         let limit = count / dict.keys.count
+        let keys = dict.keys.shuffled()
         for i in 0 ..< limit {
-            for key in dict.keys.shuffled() {
+            for key in keys {
                 guard let tracks = dict[key] else { return }
                 result.append(tracks[i])
             }
