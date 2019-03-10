@@ -23,7 +23,6 @@ class PlaylistProviderMock: PlaylistProviderProtocol {
     }
     
     func fetchShuffled() -> Playlist? {
-        guard self.playlist != nil else { return nil }
         self.playlist?.tracks.shuffleTracks()
         return self.playlist
     }
