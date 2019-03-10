@@ -11,6 +11,7 @@ import Foundation
 
 class APIServiceMock: ServiceProtocol {
     var serviceError: ServiceError? = nil
+    var fileName: String?
     
     func requestData(with setup: ServiceSetup, completion: @escaping (Result<Data>) -> Void) {
         guard let error = serviceError else {
@@ -18,26 +19,16 @@ class APIServiceMock: ServiceProtocol {
             return
         }
         if serviceError == ServiceError.couldNotParseObject {
-            completion(.success(generateInvalidJsonData()))
+            completion(.success(generateData()))
         } else {
             completion(.failure(error))
         }
     }
     
     private func generateData() -> Data {
-        guard let filePath = Bundle.main.path(forResource: "playlist", ofType: "json")
-            else { fatalError("Could not mock data!") }
-        do {
-            let jsonData = try Data(contentsOf: URL(fileURLWithPath: filePath),
-                                    options: .mappedIfSafe)
-            return jsonData
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-    }
-    
-    private func generateInvalidJsonData() -> Data {
-        guard let filePath = Bundle.main.path(forResource: "invalidData", ofType: "json")
+        guard
+            let filename = fileName,
+            let filePath = Bundle.main.path(forResource: filename, ofType: "json")
             else { fatalError("Could not mock data!") }
         do {
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: filePath),

@@ -20,6 +20,7 @@ class PlaylistProviderTests: XCTestCase {
     
     func test_fetch_playlist_when_APIService_returns_valid_data_then_returns_playlist() {
         let managerExpectation = expectation(description: #function)
+        serviceMock.fileName = "playlist"
         let expectedNumberOfArtists = 5
         let expectedNumberOfTracks = 25
         let expectedExistentArtirst = Artist(id: 1171421960,
@@ -54,6 +55,7 @@ class PlaylistProviderTests: XCTestCase {
     func test_fetchShuffled_playlist_when_APIService_returns_valid_data_then_returns_playlist_shuffled() {
         let managerExpectation = expectation(description: #function)
         var managerResult: Playlist?
+        serviceMock.fileName = "playlist"
         
         sut.fetchTracks { (result) in
             if case let .success(playlist) = result {
@@ -87,6 +89,7 @@ class PlaylistProviderTests: XCTestCase {
         let managerExpectation = expectation(description: #function)
         var managerResult: ServiceError?
         let expectedResult = ServiceError.brokenData
+        serviceMock.fileName = "invalidData"
 
         serviceMock.serviceError = ServiceError.brokenData
 
