@@ -9,13 +9,13 @@
 import XCTest
 @testable import MusicPlayer
 
-class PlaylistManagerTests: XCTestCase {
-    var sut: PlaylistManager!
+class PlaylistProviderTests: XCTestCase {
+    var sut: PlaylistProvider!
     var serviceMock: APIServiceMock!
 
     override func setUp() {
         serviceMock = APIServiceMock()
-        sut = PlaylistManager(service: serviceMock)
+        sut = PlaylistProvider(service: serviceMock)
     }
     
     func test_fetch_playlist_when_APIService_returns_valid_data_then_returns_playlist() {

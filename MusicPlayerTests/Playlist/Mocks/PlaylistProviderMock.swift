@@ -9,13 +9,13 @@
 import Foundation
 @testable import MusicPlayer
 
-class PlaylistManagerMock: PlaylistManagerProtocol {
+class PlaylistProviderMock: PlaylistProviderProtocol {
     var serviceError: ServiceError?
     var playlist: Playlist?
     
     func fetchTracks(completion: @escaping (Result<Playlist>) -> Void) {
         guard let error = serviceError else {
-            self.playlist = PlaylistManagerMock.generatePlaylist()
+            self.playlist = PlaylistProviderMock.generatePlaylist()
             completion(.success(self.playlist!))
             return
         }

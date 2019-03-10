@@ -18,7 +18,7 @@ class Coordinator: CoordinatorProtocol {
     
     func start() {
         let presenter = PlaylistPresenter()
-        let manager = PlaylistManager()
+        let manager = PlaylistProvider()
         let interactor = PlaylistInteractor(presenter: presenter, manager: manager)
         let playlistViewContoller = PlaylistViewController(interactor: interactor)
         

@@ -11,11 +11,11 @@ import XCTest
 
 class PlaylistInteractorTests: XCTestCase {
     var presenterMock: PlaylistPresenterMock!
-    var managerMock: PlaylistManagerMock!
+    var managerMock: PlaylistProviderMock!
     var sut: PlaylistInteractor!
     
     override func setUp() {
-        managerMock = PlaylistManagerMock()
+        managerMock = PlaylistProviderMock()
         presenterMock = PlaylistPresenterMock()
         sut = PlaylistInteractor(presenter: presenterMock,
                                  manager: managerMock)

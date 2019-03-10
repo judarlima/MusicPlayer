@@ -24,8 +24,8 @@ extension Array where Array.Element == Track {
         let limit = count / dict.keys.count
         let keys = dict.keys.shuffled()
         for i in 0 ..< limit {
-            for key in keys {
-                guard let tracks = dict[key] else { return }
+            keys.forEach {
+                guard let tracks = dict[$0] else { return }
                 result.append(tracks[i])
             }
         }

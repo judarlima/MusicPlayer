@@ -15,10 +15,10 @@ protocol PlaylistInteractorProtocol {
 
 class PlaylistInteractor: PlaylistInteractorProtocol {
     private let presenter: PlaylistPresenterProtocol!
-    private let manager: PlaylistManagerProtocol!
+    private let manager: PlaylistProviderProtocol!
     private var playlist: Playlist?
     
-    init(presenter: PlaylistPresenterProtocol, manager: PlaylistManagerProtocol) {
+    init(presenter: PlaylistPresenterProtocol, manager: PlaylistProviderProtocol) {
         self.presenter = presenter
         self.manager = manager
     }

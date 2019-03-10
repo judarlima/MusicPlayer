@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol PlaylistManagerProtocol {
+protocol PlaylistProviderProtocol {
     func fetchTracks(completion: @escaping (Result<Playlist>) -> Void)
     func fetchShuffled() -> Playlist?
 }
 
-class PlaylistManager: PlaylistManagerProtocol {
+class PlaylistProvider: PlaylistProviderProtocol {
     private let service: ServiceProtocol!
     private let choosenArtists = [909253, 358714030, 1171421960, 1419227, 264111789]
     private let limit = 5

@@ -20,7 +20,7 @@ class PlaylistPresenterTests: XCTestCase {
     }
     
     func test_presentPlaylist_when_presenter_receives_a_playlist_model() {
-        let playlistModel = PlaylistManagerMock.generatePlaylist()
+        let playlistModel = PlaylistProviderMock.generatePlaylist()
         let expectedViewModel = PlayListViewModel(tracks: playlistModel.tracks
             .map { TrackViewModel(
                 songName: $0.name,

@@ -19,7 +19,7 @@
 		874B6861222D594100FC347D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B6860222D594100FC347D /* APIService.swift */; };
 		874B6864222D59AC00FC347D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B6863222D59AC00FC347D /* API.swift */; };
 		874B6867222D5A5300FC347D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B6866222D5A5300FC347D /* Coordinator.swift */; };
-		874B686D222D5E3F00FC347D /* PlaylistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B686C222D5E3F00FC347D /* PlaylistManager.swift */; };
+		874B686D222D5E3F00FC347D /* PlaylistProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B686C222D5E3F00FC347D /* PlaylistProvider.swift */; };
 		874B6872222D673D00FC347D /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B6870222D673D00FC347D /* TrackTableViewCell.swift */; };
 		874B6873222D673D00FC347D /* TrackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874B6871222D673D00FC347D /* TrackTableViewCell.xib */; };
 		874B687B222D878700FC347D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874B687A222D878700FC347D /* Artist.swift */; };
@@ -37,13 +37,13 @@
 		87B4F8F222300C33008F92B6 /* PlaylistPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4F8F022300C33008F92B6 /* PlaylistPresenterMock.swift */; };
 		87B4F8F322300C33008F92B6 /* PlaylistViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4F8F122300C33008F92B6 /* PlaylistViewControllerMock.swift */; };
 		87CF0B08222F0B7900001978 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF0B07222F0B7900001978 /* Array+Extensions.swift */; };
-		87D71E23222FF78000B36D7E /* PlaylistManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E22222FF78000B36D7E /* PlaylistManagerTests.swift */; };
+		87D71E23222FF78000B36D7E /* PlaylistProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E22222FF78000B36D7E /* PlaylistProviderTests.swift */; };
 		87D71E26222FF80D00B36D7E /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E25222FF80D00B36D7E /* APIServiceMock.swift */; };
 		87D71E28222FF89A00B36D7E /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D71E27222FF89A00B36D7E /* playlist.json */; };
 		87D71E29222FF8A900B36D7E /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D71E27222FF89A00B36D7E /* playlist.json */; };
 		87D71E302230030500B36D7E /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E2F2230030500B36D7E /* CoordinatorTests.swift */; };
 		87D71E322230038300B36D7E /* PlaylistInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E312230038300B36D7E /* PlaylistInteractorTests.swift */; };
-		87D71E362230043700B36D7E /* PlaylistManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E352230043700B36D7E /* PlaylistManagerMock.swift */; };
+		87D71E362230043700B36D7E /* PlaylistProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E352230043700B36D7E /* PlaylistProviderMock.swift */; };
 		87D71E382230093C00B36D7E /* PlaylistPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71E372230093C00B36D7E /* PlaylistPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +74,7 @@
 		874B6860222D594100FC347D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		874B6863222D59AC00FC347D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		874B6866222D5A5300FC347D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		874B686C222D5E3F00FC347D /* PlaylistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistManager.swift; sourceTree = "<group>"; };
+		874B686C222D5E3F00FC347D /* PlaylistProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistProvider.swift; sourceTree = "<group>"; };
 		874B6870222D673D00FC347D /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		874B6871222D673D00FC347D /* TrackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackTableViewCell.xib; sourceTree = "<group>"; };
 		874B687A222D878700FC347D /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
@@ -92,12 +92,12 @@
 		87B4F8F022300C33008F92B6 /* PlaylistPresenterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistPresenterMock.swift; sourceTree = "<group>"; };
 		87B4F8F122300C33008F92B6 /* PlaylistViewControllerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewControllerMock.swift; sourceTree = "<group>"; };
 		87CF0B07222F0B7900001978 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		87D71E22222FF78000B36D7E /* PlaylistManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistManagerTests.swift; sourceTree = "<group>"; };
+		87D71E22222FF78000B36D7E /* PlaylistProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistProviderTests.swift; sourceTree = "<group>"; };
 		87D71E25222FF80D00B36D7E /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
 		87D71E27222FF89A00B36D7E /* playlist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = playlist.json; sourceTree = "<group>"; };
 		87D71E2F2230030500B36D7E /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		87D71E312230038300B36D7E /* PlaylistInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistInteractorTests.swift; sourceTree = "<group>"; };
-		87D71E352230043700B36D7E /* PlaylistManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistManagerMock.swift; sourceTree = "<group>"; };
+		87D71E352230043700B36D7E /* PlaylistProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistProviderMock.swift; sourceTree = "<group>"; };
 		87D71E372230093C00B36D7E /* PlaylistPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				874B686A222D5D5000FC347D /* Interactor */,
-				874B686B222D5DF800FC347D /* Manager */,
+				874B686B222D5DF800FC347D /* DataProvider */,
 				874B6869222D5D4B00FC347D /* Presenter */,
 				874B6891222DD59C00FC347D /* ViewModels */,
 				874B6868222D5D4300FC347D /* Views */,
@@ -265,13 +265,13 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		874B686B222D5DF800FC347D /* Manager */ = {
+		874B686B222D5DF800FC347D /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				874B686C222D5E3F00FC347D /* PlaylistManager.swift */,
+				874B686C222D5E3F00FC347D /* PlaylistProvider.swift */,
 				874B6880222D8CF700FC347D /* PlaylistServiceSetup.swift */,
 			);
-			path = Manager;
+			path = DataProvider;
 			sourceTree = "<group>";
 		};
 		874B6877222D741C00FC347D /* Models */ = {
@@ -310,7 +310,7 @@
 				87D71E3B223009B800B36D7E /* Mocks */,
 				87D71E2D223002DD00B36D7E /* Presenter */,
 				87D71E2C223002D300B36D7E /* Interactor */,
-				87D71E2B223002CD00B36D7E /* Manager */,
+				87D71E2B223002CD00B36D7E /* DataProvider */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";
@@ -332,12 +332,12 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		87D71E2B223002CD00B36D7E /* Manager */ = {
+		87D71E2B223002CD00B36D7E /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
-				87D71E22222FF78000B36D7E /* PlaylistManagerTests.swift */,
+				87D71E22222FF78000B36D7E /* PlaylistProviderTests.swift */,
 			);
-			path = Manager;
+			path = DataProvider;
 			sourceTree = "<group>";
 		};
 		87D71E2C223002D300B36D7E /* Interactor */ = {
@@ -367,7 +367,7 @@
 		87D71E3B223009B800B36D7E /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				87D71E352230043700B36D7E /* PlaylistManagerMock.swift */,
+				87D71E352230043700B36D7E /* PlaylistProviderMock.swift */,
 				87B4F8F022300C33008F92B6 /* PlaylistPresenterMock.swift */,
 				87B4F8F122300C33008F92B6 /* PlaylistViewControllerMock.swift */,
 			);
@@ -501,7 +501,7 @@
 				87CF0B08222F0B7900001978 /* Array+Extensions.swift in Sources */,
 				874B687D222D87D900FC347D /* Track.swift in Sources */,
 				874B6867222D5A5300FC347D /* Coordinator.swift in Sources */,
-				874B686D222D5E3F00FC347D /* PlaylistManager.swift in Sources */,
+				874B686D222D5E3F00FC347D /* PlaylistProvider.swift in Sources */,
 				874B6872222D673D00FC347D /* TrackTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,8 +515,8 @@
 				87D71E26222FF80D00B36D7E /* APIServiceMock.swift in Sources */,
 				87B4F8F222300C33008F92B6 /* PlaylistPresenterMock.swift in Sources */,
 				87B4F8F322300C33008F92B6 /* PlaylistViewControllerMock.swift in Sources */,
-				87D71E23222FF78000B36D7E /* PlaylistManagerTests.swift in Sources */,
-				87D71E362230043700B36D7E /* PlaylistManagerMock.swift in Sources */,
+				87D71E23222FF78000B36D7E /* PlaylistProviderTests.swift in Sources */,
+				87D71E362230043700B36D7E /* PlaylistProviderMock.swift in Sources */,
 				87D71E302230030500B36D7E /* CoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

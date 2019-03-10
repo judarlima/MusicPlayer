@@ -9,7 +9,7 @@
 - About the ViewModel, in this architecture she have a different purpose. She doesn't contains business logic, her responsibility is only abstract the business model data into a struct that only makes sense to the presentation layer, trying not to expose those businesses model information at viewController.
 - The layers into this architecture respect a unidirectional flow (viewController -> Interactor -> Presenter -> ViewController), this helps to prevent reference cycles.
 <br><br>
-![](https://i.imgur.com/sGQe76A.png)
+![](https://i.imgur.com/Kx6SoAF.png)
 
 ## Continuous Integration
 - This repository is integrated with `Bitrise` what means that every time that a pull request is open to the `master` branch the CI will run a build and the tests for the Pull Request, also when a merge occurs with the master the CI will run the build and the tests.
