@@ -21,7 +21,7 @@
 ## Unit Tests
 Were implemented Unit Tests for:
 - Coordinator
-- Playlist Manager
+- Playlist DataProvider
 - Playlist Presenter
 - Playlist Interactor
 
