@@ -13,7 +13,6 @@ extension Array where Array.Element == Track {
     mutating func shuffleTracks() {
         var dict = [String: [Track]]()
         var result: [Track] = []
-        self.shuffle()
         
         for track in self {
             if case nil = dict[track.artistName]?.append(track) {
@@ -21,6 +20,7 @@ extension Array where Array.Element == Track {
             }
         }
         
+        guard count % dict.keys.count == 0 else { return }
         let limit = count / dict.keys.count
         let keys = dict.keys.shuffled()
         for i in 0 ..< limit {
